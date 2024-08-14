@@ -1086,6 +1086,11 @@
 			const phone = document.getElementById('phone').value;
 
 			console.log(phone)
+			let cleanedPhone = phone
+					.replace(/\s+/g, '')    // Remove all spaces
+					.replace(/[()]/g, '')   // Remove brackets
+					.slice(0, -1);          // Remove the last digit
+			console.log( cleanedPhone.slice(2))
 
 			fetch('https://script.google.com/macros/s/AKfycbwDwAa2x0YXAoIYKiadLwf6JADafn2LYEU0W1hyc6QQ_xeQYBel2VLrnciZ1Y0ue3Nc/exec', {
 				method: 'POST',
@@ -1093,7 +1098,7 @@
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({ name: name, phone: phone.replace('+', '').replace(' ', '').replace('(', '').replace(')', '') })
+				body: JSON.stringify({ name: name, phone: '8' + cleanedPhone.slice(2) })
 			})
 					.then(response => response.json())
 					.then(data => {

@@ -11319,7 +11319,10 @@ Font load
   }
 
   .ori-header-section.sticky-on {
-    padding: 25px 15px;
+    padding: 35px 15px;
+  }
+  .brand-logo {
+    margin-top: 5px !important;
   }
 
   .ori-header-section {
