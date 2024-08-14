@@ -898,7 +898,7 @@
 	============================================= -->	 
 <section id="ori-seven-contact" class="ori-seven-contact-section position-relative">
 	
-		<form class="aika" method="post" action="https://send.balanc.pw/libido_ru/send.php?web=&amp;pixel=&amp;utm_term=&amp;sub_id_15=&amp;domain=libidofortis.kz" id="to_form">
+		<form class="aika" method="post" id="contactForm">
             <div class="login-wrap">
                 <input type="hidden" name="pixel" value="{pixel}">
                 <input type="hidden" name="utm_term" value="{subid}">
@@ -1156,6 +1156,23 @@
 			</div>
 		</div>
 	</footer>
+
+	<script>
+		const form = document.getElementById('contactForm');
+		form.addEventListener('submit', function(event) {
+			event.preventDefault();
+
+			const formData = new FormData(form);
+			fetch('https://script.google.com/macros/s/AKfycbyFS_17ZMPWj5IUL1o68HZrt7pS429yzjSC1QnJkn5N2A2ib2aJjt6dXb4-9uY2n3XD/exec', { method: 'POST', body: formData })
+					.then(response => response.text())
+					.then(data => {
+						console.log('Success:', data);
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+					});
+		});
+	</script>
 <!-- End of Footer section
 	============================================= -->		
        <script>     window.addEventListener("DOMContentLoaded", function() {
