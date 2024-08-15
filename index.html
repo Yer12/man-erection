@@ -128,9 +128,12 @@
 			</div>
 			<div class="ori-slider-wrap-1">
 				<div class="ori-slider-content-1 position-relative">
+					<div class="hero-gif" style="display: flex; justify-content: center">
+						<img  src="gifs/hero.gif" alt="">
+					</div>
 					<div class="ori-slider-text text-center  text-uppercase">
-						<h1>Увеличь свой <span>ПОТЕНЦИАЛ</span> <br>
-							в размере до 5см.<i class="fas fa-arrow-right"></i>
+						<h1>Раскрой свой  <span>ПОТЕНЦИАЛ</span> <br>
+							и увеличь его до 5 см.<i class="fas fa-arrow-right"></i>
 						</h1>
 						
 						
@@ -211,10 +214,8 @@
 	<section id="ori-text-scroll-1" class="ori-text-scroll-section-1 position-relative">
 		<div class="ori-text-scroll-content">
 			<div class="ori-text-scroll-item-1 text-uppercase">
-				<h3>1490 <span>ТНГ</span></h3>
-				<span class="ori-text-scroll-icon"><i class="fas fa-star"></i></span>
-				<h3>ТОЛЬКО <span>СЕГОДНЯ</span></h3>
-				<span class="ori-text-scroll-icon"><i class="fas fa-star"></i></span>
+				<h3>1490 <span>ТНГ </span></h3>
+				<h3>ТОЛЬКО <span>СЕГОДНЯ </span></h3>
 			</div>
 		</div>
 		<div class="line_animation">
@@ -336,14 +337,14 @@
 								<div class="recent-post-widget">
 									<h3 class="widget-title">Результаты</h3>
 									<div class="ori-recent-post-item d-flex align-items-center">
-										<div style="width: 250px" class="recent-blog-img">
+										<div style="width: 200px" class="recent-blog-img">
 											<img src="gifs/gif1.webp" alt="">
 											<img src="images/result1.jpg" alt="">
 										</div>
 										<div class="recent-blog-text">
 											<span class="date-meta text-uppercase">Результат от Анонимного пользователья</span>
 											<h3><a href="#to_form">
-												<ul>
+												<ul style="padding-left: 0; list-style: none">
 													<li>Возраст: 30 лет</li>
 													<li>Длина: +5 см</li>
 													<li>Длительность: 35 мин</li>
@@ -353,14 +354,14 @@
 										</div>
 									</div>
 									<div class="ori-recent-post-item d-flex align-items-center">
-										<div style="width: 250px" class="recent-blog-img">
+										<div style="width: 200px" class="recent-blog-img">
 											<img src="gifs/gif2.gif" alt="">
 											<img src="images/result2.jpg" alt="">
 										</div>
 										<div class="recent-blog-text">
 											<span class="date-meta text-uppercase">Результат от Анонимного пользователья </span>
 											<h3><a href="#to_form">
-												<ul>
+												<ul style="padding-left: 0; list-style: none">
 													<li>Возраст: 27 лет</li>
 													<li>Длина: +6 см</li>
 													<li>Длительность: 30 мин</li>
@@ -370,14 +371,14 @@
 										</div>
 									</div>
 									<div class="ori-recent-post-item d-flex align-items-center">
-										<div style="width: 250px;" class="recent-blog-img">
+										<div style="width: 200px;" class="recent-blog-img">
 											<img src="gifs/gif3.webp" alt="">
 											<img src="images/result3.jpg" alt="">
 										</div>
 										<div class="recent-blog-text">
 											<span class="date-meta text-uppercase">Результат от Анонимного пользователья  </span>
 											<h3><a href="#to_form">
-												<ul>
+												<ul style="padding-left: 0; list-style: none">
 													<li>Возраст: 19 лет</li>
 													<li>Длина: +8 см</li>
 													<li>Длительность: 40 мин</li>
@@ -451,9 +452,7 @@
 		<div class="ori-text-scroll-content">
 			<div class="ori-text-scroll-item-2 clearfix text-uppercase">
 				<h3>ЗАКАЖИ <span>СЕГОДНЯ</span></h3>
-				<span class="ori-text-scroll-icon"><i class="fas fa-star"></i></span>
 				<h3>ПОЛУЧИ СКИДКУ <span>50%</span></h3>
-				<span class="ori-text-scroll-icon"><i class="fas fa-star"></i></span>
 			</div>
 		</div>
 		<div class="line_animation">
@@ -1085,11 +1084,14 @@
 			const name = document.getElementById('name').value;
 			const phone = document.getElementById('phone').value;
 
-			console.log(phone)
-			let cleanedPhone = phone
+			console.log(phone.length)
+			let cleanedPhone = phone.length === 19 ? phone
 					.replace(/\s+/g, '')    // Remove all spaces
 					.replace(/[()]/g, '')   // Remove brackets
-					.slice(0, -1);          // Remove the last digit
+					.slice(0, -1)          // Remove the last digit
+					: phone
+							.replace(/\s+/g, '')    // Remove all spaces
+							.replace(/[()]/g, '')   // Remove brackets
 			console.log( cleanedPhone.slice(2))
 
 			fetch('https://script.google.com/macros/s/AKfycbwDwAa2x0YXAoIYKiadLwf6JADafn2LYEU0W1hyc6QQ_xeQYBel2VLrnciZ1Y0ue3Nc/exec', {
@@ -1104,10 +1106,11 @@
 					.then(data => {
 						console.log(data); // Log the response to check if it's successful
 						if(data.result === 'success'){
-							alert('Спасибо за ваше представление!');
+
 							document.getElementById('leadForm').reset();
 						}
 					})
+			alert('Спасибо за ваше представление!');
 		});
 	</script>
 <!-- End of Footer section
